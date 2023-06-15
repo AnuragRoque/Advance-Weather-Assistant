@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Claymorphic toggle</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="container">
+  <svg id="bgSVG" xmlns="http://www.w3.org/2000/svg">
+		<defs>
+			<filter id="goo">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
+				<feBlend />
+			</filter>
+
+			<linearGradient id="bgGrad" x1="400" y1="600" x2="400" gradientUnits="userSpaceOnUse">
+				<stop offset="0" stop-color="#fff" />
+				<stop offset="0.16" stop-color="#fbfdff" />
+				<stop offset="0.31" stop-color="#f0f6fe" />
+				<stop offset="0.45" stop-color="#deebfe" />
+				<stop offset="0.59" stop-color="#c3dbfd" />
+				<stop offset="0.7" stop-color="#a8cafc" />
+			</linearGradient>
+		</defs>
+</svg>
+
+	<svg id="mainSVG" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+		<defs>
+
+			<defs>
+
+				<filter id="panelDropShadow" x="-100%" y="-100%" width="350%" height="350%">
+					<feGaussianBlur stdDeviation="24" result="coloredBlur" />
+					<feOffset dx="12" dy="24" result="offsetblur"></feOffset>
+					<feFlood id="glowAlpha" flood-color="#7DA3D1" flood-opacity="0.6"></feFlood>
+					<feComposite in2="offsetblur" operator="in"></feComposite>
+					<feMerge>
+						<feMergeNode />
+						<feMergeNode in="SourceGraphic"></feMergeNode>
+					</feMerge>
+				</filter>
+
+
+				<filter id="panelInnerShadow2" x="-100%" y="-100%" width="250%" height="250%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur" />
+					<feOffset dx="-12" dy="-8" />
+					<feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+					<feFlood flood-color="#C2D4F5" class="buttonFlood" flood-opacity="1" />
+					<feComposite in2="shadowDiff" operator="in" />
+					<feComposite in2="SourceGraphic" operator="over" />
+				</filter>
+			  <filter id="panelInnerShadow" x="-100%" y="-100%" width="250%" height="250%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur" />
+					<feOffset dx="12" dy="8" />
+					<feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+					<feFlood flood-color="#E6F1FB" class="buttonFlood_a" flood-opacity="1" />
+					<feComposite in2="shadowDiff" operator="in" />
+					<feComposite in2="SourceGraphic" operator="over" />
+				</filter>
+				<filter id="buttonDropShadow" x="-100%" y="-100%" width="350%" height="350%">
+					<feGaussianBlur stdDeviation="10" result="coloredBlur" />
+					<feOffset dx="0" dy="6" result="offsetblur"></feOffset>
+					<feFlood id="glowAlpha"  class="buttonDropShadowFlood" flood-color="#147FF7" flood-opacity="0.6"></feFlood>
+					<feComposite in2="offsetblur" operator="in"></feComposite>
+					<feMerge>
+						<feMergeNode />
+						<feMergeNode in="SourceGraphic"></feMergeNode>
+					</feMerge>
+				</filter>
+				<filter id="buttonInnerShadow" x="-100%" y="-100%" width="250%" height="250%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur" />
+					<feOffset dx="4" dy="4" />
+					<feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+					<feFlood flood-color="#9DD5F9" class="buttonInnerShadowFlood" flood-opacity="0.3" />
+					<feComposite in2="shadowDiff" operator="in" />
+					<feComposite in2="SourceGraphic" operator="over" />
+				</filter>
+				<filter id="buttonInnerShadow2" x="-100%" y="-100%" width="250%" height="250%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur" />
+					<feOffset dx="-6" dy="-6" />
+					<feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+					<feFlood flood-color="#147FF7" class="buttonInnerShadow2Flood" flood-opacity="1" />
+					<feComposite in2="shadowDiff" operator="in" />
+					<feComposite in2="SourceGraphic" operator="over" />
+				</filter>
+
+				<clipPath id="buttonMask">
+					<path class="blobButton" d="M488.53,380.08H311.47c-7.2,0-15.1-5.73-16.39-13a94.07,94.07,0,0,1,0-32.28c1.29-7.29,9.19-13,16.39-13H488.53c7.2,0,15.1,5.73,16.39,13a94.07,94.07,0,0,1,0,32.28C503.63,374.35,495.73,380.09,488.53,380.08Z" fill="#54A8FD" />
+				</clipPath>
+				<radialGradient id="pokeGrad" cx="0" cy="0" r="26" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#4C92F4" />
+
+					<stop offset="1" stop-color="#62ABFA" stop-opacity="0" />
+				</radialGradient>
+			</defs>
+		</defs>
+		<g id="panelBg" stroke="none" filter="url(#panelDropShadow)">
+			<g filter="url(#panelInnerShadow)">
+				<g filter="url(#panelInnerShadow2)">
+					<path d="M472.72,367.79a1445.78,1445.78,0,0,1-145.44,0c-34.78-2.25-63.16-33.68-63.16-67.79h0c0-34.11,28.38-65.54,63.16-67.79a1445.78,1445.78,0,0,1,145.44,0c34.78,2.25,63.16,33.68,63.16,67.79h0C535.88,334.11,507.5,365.54,472.72,367.79Z" fill="#fff" />
+				</g>
+			</g>
+		</g>
+		<g class="blobButton" stroke="none" filter="url(#buttonDropShadow)">
+			<g stroke="none" filter="url(#buttonInnerShadow)">
+				<g filter="url(#buttonInnerShadow2)">
+					<g filter="url(#goo)">
+						<circle class="mainBlob" cx="334" cy="300" r="53" fill="#54a8fd" opacity=1 />
+					  <circle class="bigBlob" cx="467" cy="300" r="53" fill="#54a8fd" />						
+					</g>
+				</g>
+			</g>
+	</svg>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

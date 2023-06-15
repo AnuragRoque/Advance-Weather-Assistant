@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/weather.css') }}">
+	  <link rel="stylesheet" href="css/weather.css">
+  </head>
+  <body>
+      <div class="container">
+          <div class="bckground">
+            
+          <div class="timeput">
+            <div class="time"></div>
+            <div class="details">{{datee}} <br> Greater Noida</div>
+          </div>
+          <div class="news">
+            <h1>News</h1>
+            <br>
+            <p>>Samsung to launch Galaxy Book 2 Pro and Galaxy Book 2 Pro 360 laptops <br><br>
+              >Realme unveils  TechLife Watch S100 and Buds N100 - GSMArena.com news <br><br>
+              >OnePlus 10 Pro India launch teaser revealed, ‘Spring Launch’ confirmed <br><br>
+              >Uttar Pradesh Election Results 2022: BJP Wins Second Term With 270+ Seats <br><br>
+              >March 10: Moscow admits for first time it sent conscripts to fight in Ukraine<br>
+              <br>
+            
+            </p>
+          </div>
+          <div class="tasks">
+            <h1>Task</h1>
+            <br>
+            <p>No tasks assignned today<br>
+              <br>
+            
+            </p>
+          </div>
+          
+          </div>
+          <div class="white_stripe">
+            <div class="temp">
+              <div class="celsius">
+                <div class="weather_icon">
+                  <img src="{{ url_for('static', filename='116.png')}}" alt="sunny" height="80" width="80">
+                </div>
+                <p style="color: gray;">temperature</p>
+                <h1 style="font-weight: bold; font-size: 4rem; padding: 0.6rem;">{{temp}}&#176;C</h1>
+              </div>
+              <div class="vertical"></div>
+              <div class="status">
+                <div class="condition">
+                  <p>Clear</p>
+                  <p style="color: gray;">weather</p>
+                </div>
+                <div class="wind">
+                  <p>West</p>
+                  <p style="color: gray;">Wind</p>
+                </div>
+              </div>
+            </div>
+            <div class="humidity">
+              <div class="weather_icon">
+                <img src="{{ url_for('static', filename='299.png') }}" alt="humid" height="60" width="60">
+              </div>
+              <div class="humid" style="color: grey;">Humidity</div>
+              <h1 class="humidity_level" style="font-size: 4rem;">{{ humm }}%</h1>
+              <hr />
+              <div class="condition">
+                <p>Overcast</p>
+                <p class="date" style="color: gray;"></p>
+              </div>
+            </div>
+            <a href="#" onmousedown="bleep.play()">
+              <div class="button"  onmousedown="bleep.play()">
+              <input type="image" src="{{ url_for('static', filename='mic.png') }}" height="80" width="50" class="mic">
+              </a></div>
+          </div>
+      </div>
+      <script type="text/javascript">
+        let time_box=document.querySelector('.time');
+        let date_box=document.querySelector('.date');
+        let time=new Date();
+        let hours=time.getHours();
+        let minutes=time.getMinutes();
+        let meridian=hours>=12?'PM' : "AM";
+
+        time_box.innerHTML=hours+":"+minutes+" "+meridian;
+        date_box.innerHTML=time.toDateString();
+
+        
+        
+        var bleep=new Audio();
+        bleep.src="{{ url_for('static', filename='intro_ai.mp3') }}";
+    
+      </script>
+  </body>
+  </html>

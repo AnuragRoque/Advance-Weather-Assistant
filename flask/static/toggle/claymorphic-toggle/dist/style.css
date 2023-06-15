@@ -1,0 +1,28 @@
+body {
+
+ overflow: hidden;
+ text-align:center;
+  align-items: center;
+  justify-content: center; 
+}
+
+#container {
+display: grid;
+  place-items: center;
+  grid-template-areas: "inner-div";
+ height: 100%;
+ width: 100%;}
+
+body,
+html {
+ height: 50%;
+ width: 50%;
+ margin: 0;
+ padding: 0;
+}
+
+
+
+#buttonPoke {
+	pointer-events: none;
+}

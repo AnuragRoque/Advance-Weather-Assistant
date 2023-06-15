@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="app.css" />
+  </head>
+  <body>
+    <h3 class="title">weather.info</h3>
+    <span class="toggle_btn">
+      <input type="checkbox" id="toggle" name="toggle" value="is_on" onClick="setTimeout(redirect, 2000)" />
+      <label for="toggle" class="toy-toggle">
+        <span class="border1"></span>
+        <span class="border2"></span>
+        <span class="border3"></span>
+        <span class="handle">
+          <span class="handle-off"></span>
+          <span class="handle-on"></span>
+        </span>
+      </label>
+    </span>
+    <div class="weath_info"></div>
+    <div class="location_panel">
+      <div class="top_sect">
+        <form id="form">
+          <input
+            type="text"
+            name="location"
+            class="srch_location"
+            placeholder="Another location"
+          />
+          <button class="btn_srch" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <ul class="places">
+          <li class="loc">New Delhi</li>
+          <li class="loc">London</li>
+          <li class="loc">Cape Town</li>
+          <li class="loc">New York</li>
+          <li class="loc">Los Angeles</li>
+          <li class="loc">Beijing</li>
+        </ul>
+      </div>
+      <div class="weather_details">
+        <h4 style="text-align: center;">Weather Details</h4>
+        <section class="details">
+          <div class="cloudy">
+            <span id="cloud">Cloudy</span>
+            <span id="cstatus" class="stat">86%</span>
+          </div>
+          <div class="humidity">
+            <span id="humid">Humidity</span>
+            <span id="hstatus" class="stat">62%</span>
+          </div>
+          <div class="wind_speed">
+            <span id="wind">Wind Speed</span>
+            <span id="wstatus" class="stat">8km/h</span>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="temp">
+      <span class="weathr">
+        <img
+          src="./icons/day/113.png"
+          alt="icon"
+          class="icon"
+          height="50"
+          width="50"
+        />
+        <small class="condition" style="text-align: center">Cloudy</small>
+      </span>
+      <span class="temperature">16&#176;C</span>
+      <span class="location">
+        <h4 class="currCity">New Delhi</h4>
+        <p class="format">
+          <span class="timeput">06:09</span> -
+          <span class="dateput">Monday Sep 21</span>
+        </p>
+      </span>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+WORKING Flask
+
+
+
+from ssl import ALERT_DESCRIPTION_UNRECOGNIZED_NAME
+from flask import Flask,render_template
+import time
+import datetime
+import os
+import python_weather
+import asyncio
+import requests
+from bs4 import BeautifulSoup
+
+app=Flask(__name__,template_folder='template')
+timee = time.strftime("%Y-%m-%d  %H:%S")
+
+
+@app.route("/")
+def home():
+    #getweather()
+    age=21
+    #temp=loop.run_until_complete(getweather())
+    return render_template('temp2.html',  timee=timee,age=age)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+   
